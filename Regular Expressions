@@ -1,4 +1,5 @@
-Fill in the code to check if the text passed contains punctuation symbols: commas, periods, colons, semicolons, question marks, and exclamation points.
+1. Fill in the code to check if the text passed contains punctuation symbols:
+commas, periods, colons, semicolons, question marks, and exclamation points.
 
 import re
 def check_punctuation (text):
@@ -10,4 +11,17 @@ print(check_punctuation("This is a sentence fragment without a period")) # False
 print(check_punctuation("Aren't regular expressions awesome?")) # True
 print(check_punctuation("Wow! We're really picking up some steam now!")) # True
 print(check_punctuation("End of the line")) # False
+
+2. Fill in the code to check if the text passed has at least 2 groups of alphanumeric characters 
+(including letters, numbers, and underscores) separated by one or more whitespace characters.
+
+import re
+def check_character_groups(text):
+  result = re.search(r"\w\s\d*", text)  // w for _ characters and characters and s for the whitespaces and d for digits
+  return result != None
+
+print(check_character_groups("One")) # False
+print(check_character_groups("123  Ready Set GO")) # True
+print(check_character_groups("username user_01")) # True
+print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
 
