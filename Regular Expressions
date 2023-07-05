@@ -38,14 +38,14 @@ followed by at least some lowercase letters or a space, and ends with a period, 
   print(check_sentence("Hello")) # False
   print(check_sentence("1-2-3-GO!")) # False
   print(check_sentence("A star is born.")) # True
-  
-4. We're working with a CSV file, which contains employee information. Each record has a name field, followed by a phone number field, and a role field.
+Quiz No 2:    
+1. We're working with a CSV file, which contains employee information. Each record has a name field, followed by a phone number field, and a role field.
 The phone number field contains U.S. phone numbers, and needs to be modified to the international format,with "+1-" in front of the phone number. 
 Fill in the regular expression, using groups, to use the transform_record function to do that.
   
   import re
   def transform_record(record):
-    new_record = re.sub(r"(\d{3}-\d{3}-\d{3})", r"+1-\1", record)
+    new_record = re.sub(r',([\d\-]+),',r',+1-\1,',record)
     return new_record
   
   print(transform_record("Sabrina Green,802-867-5309,System Administrator")) 
