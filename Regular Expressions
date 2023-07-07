@@ -62,3 +62,20 @@ Fill in the regular expression, using groups, to use the transform_record functi
   print(transform_record("Charlie Rivera,698-746-3357,Web Developer")) 
   # Charlie Rivera,+1-698-746-3357,Web Developer
 
+2. The transform_comments function converts comments in a Python script into those usable by a C compiler. 
+This means looking for text that begins with a hash mark (#) and replacing it with double slashes (//), 
+which is the C single-line comment indicator.
+
+    import re
+  def transform_comments(line_of_code):
+    result = re.sub(r'#+',r'//',line_of_code) // finds for the more than the one # and then replace it with the //
+    return result
+  
+  print(transform_comments("### Start of program")) 
+  # Should be "// Start of program"
+  print(transform_comments("  number = 0   ## Initialize the variable")) 
+  # Should be "  number = 0   // Initialize the variable"
+  print(transform_comments("  number += 1   # Increment the variable")) 
+  # Should be "  number += 1   // Increment the variable"
+  print(transform_comments("  return(number)")) 
+  # Should be "  return(number)"
